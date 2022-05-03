@@ -1,0 +1,43 @@
+<%- layout('layout') %>
+
+<div class="container">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+            </button>
+            <a class="navbar-brand" href="/">Flash Zone</a>
+          </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <header>
+                <div>
+                  <a class="navbar-brand" href="#">Login</a>
+                </div>
+              </header>  
+          </div>
+        </div>
+    </nav>
+
+    <div class="row align-items-center">
+        <div id="signup-id" class="col-lg-6">
+
+            <form method="post" class="login" id="signup" action="/addcategory">
+                <div class="text-center">
+                    <% if (message.length > 0) { %>
+                        <div class="btn btn-success">
+                            <%= message %>
+                        </div>
+                    <% } %>
+                </div>
+                <h1 class="text-center">Add category</h1>
+                <div class="form-group">
+                    <label>Name: </label>
+                    <input type="text" class="form-control" name="name">
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

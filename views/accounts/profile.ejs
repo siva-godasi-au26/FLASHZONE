@@ -1,0 +1,64 @@
+<% - layout('layout') %>
+
+<div class="container">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+            </button>
+            <a class="navbar-brand" href="/">Flash Zone</a>
+          </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <header>
+                <div>
+                  <a class="navbar-brand" href="/">categories</a>
+                </div>
+                <div>
+                  <a class="navbar-brand" href="#"><%= profile.profile.name %></a>
+                </div>
+                <div>
+                  <a class="navbar-brand" href="/logout">Logout</a>
+                </div>
+                <div>
+                  <a class="navbar-brand" href="/cart"><i class="bi bi-cart-fill"></i><span><%= total %></span></a>
+                </div>
+              </header>  
+          </div>
+        </div>
+    </nav>
+
+    <div class="row">
+        <div id="profile" class="col-sm-6 col-md-4">
+        
+            <% if(profile.profile.picture){ %>
+                <img id="profileimg" class="img-circle img-responsive img-center" src="<%= profile.profile.picture %>" alt="">
+            <% }else{ %>
+                <i id="imageicon" class="bi bi-image"></i>
+            <% } %>
+
+          <br />
+          <p>Name: <%= profile.profile.name %></p>
+          <p>Email: <%= profile.email %></p>
+    
+          <% if (profile.address === "" || typeof profile.address === 'undefined')  { %>
+            <p>Address: <span style="color: #c0392b; font-weight: bold">You have no address</span></p>
+    
+          <% } else { %>
+    
+          <p>Address: <%= profile.address %></p>
+    
+          <% } %>
+
+          <% if (profile.phonenumber === null)  { %>
+            <p>Phone Number: <span style="color: #c0392b; font-weight: bold">You have no phonenumber</span></p>
+    
+          <% } else { %>
+    
+          <p>Phone Number: <%= profile.phonenumber %></p>
+    
+          <% } %>
+    
+          <a href="/editprofile" id="edit" class="btn btn-primary btn-lg">Edit Profile</a>
+        </div>
+</div>
